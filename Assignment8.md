@@ -29,4 +29,5 @@ ans- ComponentDidMount() is a method which is used to perform task which require
 5-why do we use ComponentWillUnmount()
 ans- This method is used to perform any cleanup tasks that require the component to be in the DOM, such as removing event listeners, clearing timers, or canceling requests.
 --------------------------------------------------------------
-6-
+6-Why do we use super keyword in Constructor.
+ans- Super key is call the constructor of parent class. This is necessary to use super keyword to access the props and state of parent class in the children class(es).we need to use the super props in constructor to be able to use methods of parent class. for example if there is a class which is extended from React.createComponent if we dont use super keyword {super(props)} then it will throw an error saying it is not defined.
