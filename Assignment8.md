@@ -31,3 +31,26 @@ ans- This method is used to perform any cleanup tasks that require the component
 --------------------------------------------------------------
 6-Why do we use super keyword in Constructor.
 ans- Super key is call the constructor of parent class. This is necessary to use super keyword to access the props and state of parent class in the children class(es).we need to use the super props in constructor to be able to use methods of parent class. for example if there is a class which is extended from React.createComponent if we dont use super keyword {super(props)} then it will throw an error saying it is not defined.
+-----------------------------------------------------------------
+7- why can't React useEffect() callback be async?
+ans- we cannot directly give async function as a callback function in useEffect , because async/await functions always returns a promise and useEffect expects callback to return nothing or a simple function.
+we can create/use self-invoking anonymous functions to make callback in useEffect async
+for example,
+useEffect(
+    ()=>{
+        (
+            async function(){}
+        )();
+    },[]
+) 
+or you can create nested-named function
+for example, 
+useEffect(
+    ()=>{
+        function abcd = async() =>{
+            //async function code for eg. fetch()
+        }
+    }
+    abcd();
+,[])
+---------------------------------------------------------------------------
